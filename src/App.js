@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import './App.css';
-import AddExpense from './AddExpense/AddExpense';
-import ExpenseList from './ExpenseList/ExpenseList';
-import Balance from './Balance/Balance';
-import Header from './Header/Header';
+import './styles/commons.scss';
+import './styles/variables.scss';
+import AddExpense from './Components/AddExpense/AddExpense';
+import ExpenseList from './Components/ExpenseList/ExpenseList';
+import Header from './Components/Header/Header';
+import AddButton from './Components/AddButton/AddButton';
+import ExpensePieChart from './Components/ExpensePieChart/ExpensePieChart';
 
 class App extends Component {
   render() {
     return (
-     <>
-      <Header></Header>
-      <AddExpense></AddExpense>
-      <ExpenseList></ExpenseList>
-      <Balance></Balance>
-     </>
+      <>
+        <Header></Header>
+        <AddExpense></AddExpense>
+        {/* <div className="content">
+          <ExpenseList></ExpenseList>
+        </div> */}
+        <AddButton></AddButton>
+        <div className="container charts-container">
+          <ExpensePieChart></ExpensePieChart>
+        </div>
+      </>
     );
   }
 }
