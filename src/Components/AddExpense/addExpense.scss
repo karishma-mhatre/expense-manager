@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.add-expense {
+    height: 100%;
+    background: $em-color-blue;
+    color: $em-color-white;
+    //display: none;
+    
+    &_header {
+        text-align: center;
+    }
+
+    &_form {
+        height: 100%;
+        justify-content: space-between;
+    }
+}

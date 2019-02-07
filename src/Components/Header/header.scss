@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.header{
+    justify-content: center;
+    align-items: center;
+    background-color: $em-color-white;
+    color: $em-color-blue;
+    box-shadow: 0 15px 40px -21px $em-color-grey;
+    height: 120px;
+}
+
+
