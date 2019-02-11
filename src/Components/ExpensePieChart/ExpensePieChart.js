@@ -1,6 +1,6 @@
 import React from 'react';
-import Chart from 'chart.js';
 import { connect } from 'react-redux';
+import {Pie} from 'react-chartjs-2';
 
 class ExpensePieChart extends React.Component {
     config = {
@@ -9,7 +9,6 @@ class ExpensePieChart extends React.Component {
                 datasets: [
                     {
                         data: [
-                            10, 20, 30, 40
                         ],
                         backgroundColor: [
                             'pink',
@@ -21,10 +20,6 @@ class ExpensePieChart extends React.Component {
                     }
                 ],
                 labels: [
-                    'Rent',
-					'Groceries',
-					'Travel',
-					'Electricity', 
                 ]
                 
             },
@@ -33,35 +28,32 @@ class ExpensePieChart extends React.Component {
 			}
     }
 
-    componentDidMount = () =>  {
-        var ctx = document.getElementById('expense-pie-chart').getContext('2d');
-        this.createDataset();
-         window.myPie = new Chart(ctx, this.config);
-        console.log(this.props.expenseList);
-    }
-
     createDataset = () => {
         for(let datedExpense of this.props.expenseList) {
             for(let expense of datedExpense.expenses) {
                 if(expense.amount < 0) {
-                    let dataIndex = this.config.data.labels.indexOf(expense.amount)
-                    if(dataIndex > 0) {
+                    let dataIndex = this.config.data.labels.indexOf(expense.name)
+                    if(dataIndex >= 0) {
                         this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
                     }else {
                         this.config.data.labels.push(expense.name);
+                        this.config.data.datasets[0].data.push(Math.abs(expense.amount));
                     }
                 }
             }
         }
-
+        console.log(this.props.expenseList);
         console.log(this.config);
     }
 
     render() {
+        this.config.data.datasets[0].data = new Array(this.config.data.datasets[0].data.length).fill(0);
+        this.createDataset();
+
         return (
             <div className="chart">
-                <canvas id="expense-pie-chart"></canvas>
                 <div>{this.props.expenseList.length}</div>
+                <Pie data={this.config.data} redraw></Pie>
             </div>
         );
     }
