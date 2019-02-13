@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ExpensePieChart from './ExpensePieChart/ExpensePieChart';
 import IncomePieChart from './IncomePieChart/IncomePieChart';
+import DatedExpenseBarChart from './DatedExpenseBarChart/DatedExpenseBarChart';
 
 class Dashboard extends Component {
     render() {
@@ -8,6 +9,7 @@ class Dashboard extends Component {
             <div>
                 <ExpensePieChart></ExpensePieChart>
                 <IncomePieChart></IncomePieChart>
+                <DatedExpenseBarChart></DatedExpenseBarChart>
             </div>
         )
     }

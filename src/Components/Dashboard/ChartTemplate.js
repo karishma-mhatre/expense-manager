@@ -1,18 +1,14 @@
 export function ChartTemplate() {
     return {
-        type: 'pie',
+        type: '',
             data: {
                 datasets: [
                     {
                         data: [
                         ],
                         backgroundColor: [
-                            'pink',
-                            'lightblue',
-                            'lightgreen',
-                            'lightgrey'
                         ],
-                        label: 'Income'
+                        label: ''
                     }
                 ],
                 labels: [
