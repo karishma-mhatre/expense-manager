@@ -6,6 +6,13 @@ import {ChartTemplate} from '../ChartTemplate';
 class ExpensePieChart extends React.Component {
     config = new ChartTemplate();
 
+    options = {
+        title: {
+            display: true,
+            text: "Expenses"
+        }
+    }
+    
     createDataset = () => {
         this.config.type = "pie";
         this.config.data.datasets[0].data = new Array(this.config.data.datasets[0].data.length).fill(0);
@@ -34,15 +41,8 @@ class ExpensePieChart extends React.Component {
         this.createDataset();
 
         return (
-            <div className="chart">
-                <Doughnut data={this.config.data} options={
-                    {
-                        title: {
-                            display: true,
-                            text: "Expenses"
-                        }
-                    }
-                } redraw></Doughnut>
+            <div className="chart-container">
+                <Doughnut data={this.config.data} options={this.options} redraw></Doughnut>
             </div>
         );
     }

@@ -33,7 +33,7 @@ class IncomePieChart extends React.Component {
     render() {
         this.createDataset();
         return (
-            <div className="chart">
+            <div className="chart-container">
                 <Pie data={this.config.data}
                     options={
                         {

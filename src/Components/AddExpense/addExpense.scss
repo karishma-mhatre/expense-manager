@@ -4,8 +4,10 @@
     height: 100%;
     background: $em-color-blue;
     color: $em-color-white;
-    //display: none;
-    
+    position: absolute;
+    top: 0;
+    width: 100%;
+
     &_header {
         text-align: center;
     }
@@ -13,5 +15,18 @@
     &_form {
         height: 100%;
         justify-content: space-between;
+    }
+}
+
+.add-expense_hidden {
+    display: none;
+}
+
+@media only screen and (min-width: 769px) {
+    .add-expense {
+        width: 60%;
+        height: 80%;
+        top: 10%;
+        left: 20%;
     }
 }

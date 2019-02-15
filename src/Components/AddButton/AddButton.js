@@ -1,13 +1,24 @@
 import React from 'react';
 import './addButton.scss';
 
-const AddButton = () => {
-    return (
-        <label className="add-btn">
-            <input type="checkbox" />
-            <i className="fa fa-plus"></i>
-        </label>
-    );
+class AddButton extends React.Component {
+    toggleAddExpense = () => {
+        let addExpenseBlock = document.getElementsByClassName("add-expense")[0];
+        if(document.querySelector(".toogleExpense").checked){
+            addExpenseBlock.classList.remove("add-expense__hidden");
+        }else {
+            addExpenseBlock.classList.add("add-expense__hidden");
+        };
+    }
+
+    render() {
+        return (
+            <label className="add-btn"> 
+                <input type="checkbox" className="toogleExpense" onClick={this.toggleAddExpense}/>
+                <i className="fa fa-plus"></i>
+            </label>
+        );
+    }
 }
 
 export default AddButton;
