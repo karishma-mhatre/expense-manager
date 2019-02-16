@@ -16,7 +16,7 @@ const ExpenseList = ({ expenseList }) => {
                 {
                     expenseList.map(element => (
                         <Expense key={element.date}
-                            expenseList = {element.expenses}
+                            expenseList={element.expenses}
                             date={element.date}>
                         </Expense>
                     ))

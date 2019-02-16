@@ -6,6 +6,14 @@ import {ChartTemplate} from '../ChartTemplate';
 class IncomePieChart extends React.Component {
     config = new ChartTemplate();
 
+    options ={
+        title: {
+            display: true,
+            text: "Income"
+        },
+        responsive: true
+    }
+
     createDataset = () => {
         this.config.type = "pie";
         this.config.data.datasets[0].data = new Array(this.config.data.datasets[0].data.length).fill(0);
@@ -14,11 +22,11 @@ class IncomePieChart extends React.Component {
             'lightblue',
             'lightgreen',
             'lightgrey'
-        ]
+        ];
         for(let datedExpense of this.props.expenseList) {
             for(let expense of datedExpense.expenses) {
                 if(expense.amount > 0) {
-                    let dataIndex = this.config.data.labels.indexOf(expense.name)
+                    let dataIndex = this.config.data.labels.indexOf(expense.name);
                     if(dataIndex >= 0) {
                         this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
                     }else {
@@ -34,16 +42,7 @@ class IncomePieChart extends React.Component {
         this.createDataset();
         return (
             <div className="chart-container">
-                <Pie data={this.config.data}
-                    options={
-                        {
-                            title: {
-                                display: true,
-                                text: "Income"
-                            }
-                        }
-                    }
-                    redraw></Pie>
+                <Pie data={this.config.data} options={this.options} redraw></Pie>
             </div>
         );
     }

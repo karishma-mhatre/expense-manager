@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {ChartTemplate} from '../ChartTemplate';
+import { ChartTemplate } from '../ChartTemplate';
 import { Bar } from "react-chartjs-2";
 import * as moment from 'moment';
 
@@ -21,16 +21,16 @@ class DatedExpenseBarChart extends Component {
         },
         responseive: true
     }
-    
+
     createDataset = () => {
         this.config.type = "line";
         this.config.data.datasets[0].data = new Array(12).fill(0);
         this.config.data.datasets[0].backgroundColor = "lightblue";
         this.config.data.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"];
-        for(let datedExpense of this.props.expenseList) {
+        for (let datedExpense of this.props.expenseList) {
             let dataIndex = moment(datedExpense.date).month();
-            for(let expense of datedExpense.expenses) {
-                if(expense.amount < 0) {
+            for (let expense of datedExpense.expenses) {
+                if (expense.amount < 0) {
                     this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
                 }
             }
@@ -39,10 +39,9 @@ class DatedExpenseBarChart extends Component {
 
     render() {
         this.createDataset();
-        return(
+        return (
             <div className="chart-container">
-                <Bar data={this.config.data} options={this.options}
-                redraw></Bar>
+                <Bar data={this.config.data} options={this.options} redraw></Bar>
             </div>
         )
     }
