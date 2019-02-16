@@ -5,9 +5,9 @@ class AddButton extends React.Component {
     toggleAddExpense = () => {
         let addExpenseBlock = document.getElementsByClassName("add-expense")[0];
         if(document.querySelector(".toogleExpense").checked){
-            addExpenseBlock.classList.remove("add-expense__hidden");
+            addExpenseBlock.classList.remove("add-expense_hidden");
         }else {
-            addExpenseBlock.classList.add("add-expense__hidden");
+            addExpenseBlock.classList.add("add-expense_hidden");
         };
     }
 
