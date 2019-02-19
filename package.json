@@ -70,7 +70,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "toolbox": "react-toolbox-themr"
+    "toolbox": "react-toolbox-themr",
+    "deploy" : "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -82,6 +83,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "gh-pages": "^2.0.1",
     "style-loader": "^0.23.1"
   },
   "reactToolbox": {
@@ -143,5 +145,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "homepage": "https://karishma-mhatre.github.io/expense-manager/"
 }
