@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ExpensePieChart from './ExpensePieChart/ExpensePieChart';
+import ExpenseDoughnutChart from './ExpenseDoughnutChart/ExpenseDoughnutChart';
 import IncomePieChart from './IncomePieChart/IncomePieChart';
 import DatedExpenseBarChart from './DatedExpenseBarChart/DatedExpenseBarChart';
 import DatedIncomeLineChart from './DatedIncomeLineChart/DatedIncomeLineChart';
@@ -9,7 +9,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <ExpensePieChart></ExpensePieChart>
+                <ExpenseDoughnutChart></ExpenseDoughnutChart>
                 <IncomePieChart></IncomePieChart>
                 <DatedExpenseBarChart></DatedExpenseBarChart>
                 <DatedIncomeLineChart></DatedIncomeLineChart>

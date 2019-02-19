@@ -1,7 +1,7 @@
-export function ChartTemplate() {
-    return {
-        type: '',
-        data: {
+export class ChartTemplate {
+    constructor(type, options) {
+        this.type =  type
+        this.data = {
             datasets: [
                 {
                     data: [
@@ -15,5 +15,6 @@ export function ChartTemplate() {
             ]
 
         }
+        this.options = options
     }
 }

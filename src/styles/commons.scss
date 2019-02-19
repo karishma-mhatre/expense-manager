@@ -80,10 +80,12 @@ body {
 
 .btn {
     padding: 10px 20px;
-    color: $em-color-white;
-    background: $em-color-red;
+    color: $em-color-blue;
+    background: $em-color-white;
     border: 0px;
     font-weight: $em-font-weight-heaviest;
+    $em-font-size-small: 12px;
+
 }
 
 .chart-container {

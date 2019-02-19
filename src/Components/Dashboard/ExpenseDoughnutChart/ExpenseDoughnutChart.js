@@ -2,28 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Doughnut } from 'react-chartjs-2';
 import { ChartTemplate } from '../ChartTemplate';
+import { ChartColors } from '../ChartColors';
 
-class ExpensePieChart extends React.Component {
-    config = new ChartTemplate();
-
-    options = {
+class ExpenseDoughnutChart extends React.Component {
+    config = new ChartTemplate("pie", {
         title: {
             display: true,
             text: "Expenses"
         },
         responsive: true
-    }
+    });
 
-    createDataset = () => {
-        this.config.type = "pie";
+    shouldComponentUpdate = (nextProps) => {
         this.config.data.datasets[0].data = new Array(this.config.data.datasets[0].data.length).fill(0);
         this.config.data.datasets[0].backgroundColor = [
-            'pink',
-            'lightblue',
-            'lightgreen',
-            'lightgrey'
+            ChartColors.pink,
+            ChartColors.lightblue,
+            ChartColors.lightgreen,
+            ChartColors.lightgrey,
+            ChartColors.lightsalmon
         ];
-        for (let datedExpense of this.props.expenseList) {
+        for (let datedExpense of nextProps.expenseList) {
             for (let expense of datedExpense.expenses) {
                 if (expense.amount < 0) {
                     let dataIndex = this.config.data.labels.indexOf(expense.name);
@@ -36,14 +35,14 @@ class ExpensePieChart extends React.Component {
                 }
             }
         }
+
+        return true;
     }
 
     render() {
-        this.createDataset();
-
         return (
             <div className="chart-container">
-                <Doughnut data={this.config.data} options={this.options} redraw></Doughnut>
+                <Doughnut data={this.config.data} options={this.config.options} redraw></Doughnut>
             </div>
         );
     }
@@ -55,4 +54,4 @@ const mapStateToProps = state => (
     }
 )
 
-export default connect(mapStateToProps)(ExpensePieChart);
+export default connect(mapStateToProps)(ExpenseDoughnutChart);
