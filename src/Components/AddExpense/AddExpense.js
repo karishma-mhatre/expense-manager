@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense } from './Actions';
+import { addExpense } from '../../Actions/addExpenseAction';
 import './addExpense.scss';
 import '../../styles/commons.scss';
 

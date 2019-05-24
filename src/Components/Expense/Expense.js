@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeExpense } from './remove-expense-acion';
+import { removeExpense } from '../../Actions/removeExpenseAction';
 import * as moment from 'moment';
 
 const Expense = ({ date, expenseList, dispatch }) => {
