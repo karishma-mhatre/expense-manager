@@ -1,13 +1,13 @@
 {
-  "main.css": "/expense-manager/static/css/main.3a2b8b30.chunk.css",
-  "main.js": "/expense-manager/static/js/main.3d75cacb.chunk.js",
-  "main.js.map": "/expense-manager/static/js/main.3d75cacb.chunk.js.map",
-  "static/js/1.a85b78b9.chunk.js": "/expense-manager/static/js/1.a85b78b9.chunk.js",
-  "static/js/1.a85b78b9.chunk.js.map": "/expense-manager/static/js/1.a85b78b9.chunk.js.map",
+  "main.css": "/expense-manager/static/css/main.5b8b5a2f.chunk.css",
+  "main.js": "/expense-manager/static/js/main.e8400a1d.chunk.js",
+  "main.js.map": "/expense-manager/static/js/main.e8400a1d.chunk.js.map",
+  "static/js/1.9de698d7.chunk.js": "/expense-manager/static/js/1.9de698d7.chunk.js",
+  "static/js/1.9de698d7.chunk.js.map": "/expense-manager/static/js/1.9de698d7.chunk.js.map",
   "runtime~main.js": "/expense-manager/static/js/runtime~main.23ba9fe6.js",
   "runtime~main.js.map": "/expense-manager/static/js/runtime~main.23ba9fe6.js.map",
-  "static/css/main.3a2b8b30.chunk.css.map": "/expense-manager/static/css/main.3a2b8b30.chunk.css.map",
+  "static/css/main.5b8b5a2f.chunk.css.map": "/expense-manager/static/css/main.5b8b5a2f.chunk.css.map",
   "index.html": "/expense-manager/index.html",
-  "precache-manifest.3dcfd6dace2759d8b316dcb9c9be6972.js": "/expense-manager/precache-manifest.3dcfd6dace2759d8b316dcb9c9be6972.js",
+  "precache-manifest.fd9bda80793ce486eef7ebb79d3ce144.js": "/expense-manager/precache-manifest.fd9bda80793ce486eef7ebb79d3ce144.js",
   "service-worker.js": "/expense-manager/service-worker.js"
 }
