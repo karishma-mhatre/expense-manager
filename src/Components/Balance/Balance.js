@@ -7,7 +7,8 @@ class Balance extends Component {
         console.log("balance", this.props);
         return (
             <div className="balance">
-                <span>Balance: </span>
+
+                <span>Balance: <span><i className="fas fa-rupee-sign"></i></span> </span>
                 {
                     this.props.balance ? this.props.balance : 0
                 }

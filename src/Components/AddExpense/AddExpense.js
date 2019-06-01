@@ -20,14 +20,14 @@ const AddExpense = ({dispatch}) => {
     return (
         <div className='add-expense add-expense_hidden'>
             <form className="container add-expense_form" onSubmit={(e) => { add(e) }}>
-                <div className="add-expense_header">ADD EXPENSE</div>
+                <div className="add-expense_header">ADD TRANSACTION</div>
                 <div className="container form-input">
                     <label htmlFor="date" className="form-input_label">SELECT DATE</label>
                     <input type="date" name="date" id="date" className="form-input_input"></input>
                 </div>
                 <div className="container form-input form-select">
                     <label className="form-input_label">
-                        SELECT EXPENSE
+                        SELECT TRANSACTION
                         </label>
                     <select id="expenseName" className="form-input_input">
                         <option value="Monthly Budget">Monthly Budget</option>
@@ -38,7 +38,7 @@ const AddExpense = ({dispatch}) => {
                     </select>
                 </div>
                 <div className="container form-input">
-                    <label htmlFor="expenseAmount" className="form-input_label">EXPENSE AMOUNT</label>
+                    <label htmlFor="expenseAmount" className="form-input_label">TRANSACTION AMOUNT</label>
                     <input type="number" id="expenseAmount" name="expenseAmount" className="form-input_input" required></input>
                 </div>
                 <div className="container container_flex-direction_row form-radio">
@@ -52,7 +52,7 @@ const AddExpense = ({dispatch}) => {
                     </div>
                 </div>
                 <div className="container">
-                    <button className="btn">ADD EXPENSE</button>
+                    <button className="btn">ADD TRANSACTION</button>
                 </div>
             </form>
         </div>

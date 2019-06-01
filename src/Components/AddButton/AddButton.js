@@ -13,10 +13,12 @@ class AddButton extends React.Component {
 
     render() {
         return (
+            <>
             <label className="add-btn">
                 <input type="checkbox" className="toogleExpense" onClick={this.toggleAddExpense} />
                 <i className="fa fa-plus"></i>
             </label>
+            </>
         );
     }
 }

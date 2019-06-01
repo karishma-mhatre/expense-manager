@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ChartTemplate } from '../ChartTemplate';
 import { ChartColors } from '../ChartColors';
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import * as moment from 'moment';
 
-class DatedIncomeLineChart extends Component {
+class DatedIncomeBarChart extends Component {
     config = new ChartTemplate("line", {
         title: {
             display: true,
@@ -23,7 +23,7 @@ class DatedIncomeLineChart extends Component {
 
     shouldComponentUpdate = (nextProps) => {
         this.config.data.datasets[0].data = new Array(12).fill(0);
-        this.config.data.datasets[0].backgroundColor = ChartColors.lightblue;
+        this.config.data.datasets[0].backgroundColor = ChartColors.lightgrey;
         this.config.data.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"];
         for (let datedTransaction of nextProps.incomes) {
             let dataIndex = moment(datedTransaction.date).month();
@@ -40,8 +40,8 @@ class DatedIncomeLineChart extends Component {
     render() {
         return (
             <div className="chart-container">
-                <Bar data={this.config.data} options={this.config.options}
-                    redraw></Bar>
+                <Line data={this.config.data} options={this.config.options}
+                    redraw></Line>
             </div>
         )
     }
@@ -53,4 +53,4 @@ const mapStateToProps = state => (
     }
 )
 
-export default connect(mapStateToProps)(DatedIncomeLineChart);
+export default connect(mapStateToProps)(DatedIncomeBarChart);

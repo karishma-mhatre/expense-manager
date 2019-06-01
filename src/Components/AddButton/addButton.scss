@@ -1,8 +1,8 @@
 @import '../../styles/variables.scss';
 
 .add-btn {
-    background: #fff;
-    color:$em-color-blue;
+    background: $em-color-blue;
+    color:#fff;
     width: 50px;
     height:50px;
     border-radius: 50%;
@@ -32,7 +32,6 @@ i {
 input[type="checkbox"]:checked ~ .fa{
     animation: rotate-button-clockwise 0.2s ease-in;
     transform: rotate(45deg);
-    color: $em-color-red;
 }
 
 imput[type="checkbox"]:checked {
@@ -42,7 +41,7 @@ imput[type="checkbox"]:checked {
 }
 
 .add-item {
-    animation: rotate-button-anti-clockwise 0.2s ease-in;
+  animation: rotate-button-anti-clockwise 0.2s ease-in;
   transform: rotate(0deg);
 }
 
