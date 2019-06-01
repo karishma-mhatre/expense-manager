@@ -9,7 +9,7 @@ class DatedExpenseBarChart extends Component {
     config = new ChartTemplate("line",{
         title: {
             display: true,
-            text: "Monthly Income"
+            text: "Monthly Expenses"
         },
         scales: {
             yAxes: [{
@@ -25,12 +25,10 @@ class DatedExpenseBarChart extends Component {
         this.config.data.datasets[0].data = new Array(12).fill(0);
         this.config.data.datasets[0].backgroundColor = ChartColors.lightblue;
         this.config.data.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"];
-        for (let datedExpense of nextProps.expenseList) {
+        for (let datedExpense of nextProps.expenses) {
             let dataIndex = moment(datedExpense.date).month();
-            for (let expense of datedExpense.expenses) {
-                if (expense.amount < 0) {
-                    this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
-                }
+            for (let expense of datedExpense.expenseList) {
+                this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
             }
         }
         
@@ -48,7 +46,7 @@ class DatedExpenseBarChart extends Component {
 
 const mapStateToProps = state => (
     {
-        expenseList: state.expenses
+        expenses: state.transactions.expenses
     }
 )
 

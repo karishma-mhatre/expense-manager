@@ -1,3 +1,22 @@
+/*
+*
+*Structure of expenses
+*expense = [
+*   {
+*       date,
+*       expenses: [           
+*           {
+*               name,
+*               type,
+*               amount,
+*               id
+*           }
+*       ]
+*   }
+*]
+*
+*/
+
 let expenseCount = 0;
 export const expenses = (state = [], action) => {
     switch (action.type) {

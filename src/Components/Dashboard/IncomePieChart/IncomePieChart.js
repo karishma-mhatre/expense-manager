@@ -22,20 +22,21 @@ class IncomePieChart extends React.Component {
             ChartColors.lightgrey,
             ChartColors.lightsalmon
         ];
-        for(let datedExpense of nextProps.expenseList) {
-            for(let expense of datedExpense.expenses) {
-                if(expense.amount > 0) {
-                    let dataIndex = this.config.data.labels.indexOf(expense.name);
+        for(let datedIncomes of nextProps.incomes) {
+            for(let transaction of datedIncomes.incomeList) {
+                if(transaction.amount > 0) {
+                    let dataIndex = this.config.data.labels.indexOf(transaction.name);
                     if(dataIndex >= 0) {
-                        this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
+                        this.config.data.datasets[0].data[dataIndex] += Math.abs(transaction.amount);
                     }else {
-                        this.config.data.labels.push(expense.name);
-                        this.config.data.datasets[0].data.push(Math.abs(expense.amount));
+                        this.config.data.labels.push(transaction.name);
+                        this.config.data.datasets[0].data.push(Math.abs(transaction.amount));
                     }
                 }
             }
         }
 
+        console.log(this.config);
         return true;
     }
     
@@ -50,7 +51,7 @@ class IncomePieChart extends React.Component {
 
 const mapStateToProps = state => (
     {
-        expenseList: state.expenses
+        incomes: state.transactions.incomes
     }
 )
 

@@ -25,15 +25,15 @@ class DatedIncomeLineChart extends Component {
         this.config.data.datasets[0].data = new Array(12).fill(0);
         this.config.data.datasets[0].backgroundColor = ChartColors.lightblue;
         this.config.data.labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"];
-        for (let datedExpense of nextProps.expenseList) {
-            let dataIndex = moment(datedExpense.date).month();
-            for (let expense of datedExpense.expenses) {
-                if (expense.amount > 0) {
-                    this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
+        for (let datedTransaction of nextProps.incomes) {
+            let dataIndex = moment(datedTransaction.date).month();
+            for (let transaction of datedTransaction.incomeList) {
+                if (transaction.amount > 0) {
+                    this.config.data.datasets[0].data[dataIndex] += Math.abs(transaction.amount);
                 }
             }
         }
-        
+        console.log("line chart config", this.config);
         return true;
     }
 
@@ -49,7 +49,7 @@ class DatedIncomeLineChart extends Component {
 
 const mapStateToProps = state => (
     {
-        expenseList: state.expenses
+        incomes: state.transactions.incomes
     }
 )
 

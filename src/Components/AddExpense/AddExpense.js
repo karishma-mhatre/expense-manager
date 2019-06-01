@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExpense } from '../../Actions/addExpenseAction';
+import { addTransaction } from '../../Actions';
 import './addExpense.scss';
 import '../../styles/commons.scss';
 
@@ -9,10 +9,11 @@ const AddExpense = ({dispatch}) => {
     let add = (e) => {
         e.preventDefault();
         let expenseName = document.getElementById('expenseName').value;
-        let expenseAmount = document.getElementById('expenseAmount').value;
+        let expenseAmount = +document.getElementById('expenseAmount').value;
         let expenseType = document.querySelector('input[name="expense-type"]:checked').value;
         let date = document.getElementById('date').value;
-        dispatch(addExpense(expenseName, expenseAmount, expenseType, date));
+        
+        dispatch(addTransaction(expenseName, expenseAmount, date, expenseType));
     }
 
 
@@ -38,7 +39,7 @@ const AddExpense = ({dispatch}) => {
                 </div>
                 <div className="container form-input">
                     <label htmlFor="expenseAmount" className="form-input_label">EXPENSE AMOUNT</label>
-                    <input type="Number" id="expenseAmount" name="expenseAmount" className="form-input_input" required></input>
+                    <input type="number" id="expenseAmount" name="expenseAmount" className="form-input_input" required></input>
                 </div>
                 <div className="container container_flex-direction_row form-radio">
                     <div>

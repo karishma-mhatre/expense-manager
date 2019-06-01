@@ -22,16 +22,14 @@ class ExpenseDoughnutChart extends React.Component {
             ChartColors.lightgrey,
             ChartColors.lightsalmon
         ];
-        for (let datedExpense of nextProps.expenseList) {
-            for (let expense of datedExpense.expenses) {
-                if (expense.amount < 0) {
-                    let dataIndex = this.config.data.labels.indexOf(expense.name);
-                    if (dataIndex >= 0) {
-                        this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
-                    } else {
-                        this.config.data.labels.push(expense.name);
-                        this.config.data.datasets[0].data.push(Math.abs(expense.amount));
-                    }
+        for (let datedExpense of nextProps.expenses) {
+            for (let expense of datedExpense.expenseList) {
+                let dataIndex = this.config.data.labels.indexOf(expense.name);
+                if (dataIndex >= 0) {
+                    this.config.data.datasets[0].data[dataIndex] += Math.abs(expense.amount);
+                } else {
+                    this.config.data.labels.push(expense.name);
+                    this.config.data.datasets[0].data.push(Math.abs(expense.amount));
                 }
             }
         }
@@ -50,7 +48,7 @@ class ExpenseDoughnutChart extends React.Component {
 
 const mapStateToProps = state => (
     {
-        expenseList: state.expenses
+        expenses: state.transactions.expenses
     }
 )
 

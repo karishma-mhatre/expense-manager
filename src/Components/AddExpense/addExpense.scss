@@ -1,8 +1,9 @@
 @import '../../styles/variables.scss';
 
 .add-expense {
+    transition: all 0.5s ease-out;
     height: 100%;
-    background: $em-color-blue;
+    background: linear-gradient(top, $em-color-blue, $em-color-red);;
     color: $em-color-white;
     position: absolute;
     top: 0;
@@ -13,13 +14,19 @@
     }
 
     &_form {
+        transition: all 0.5s ease-out;
         height: 100%;
         justify-content: space-between;
     }
 }
 
 .add-expense_hidden {
-    display: none;
+    opacity: 0;
+
+    .add-expense_form {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 769px) {
