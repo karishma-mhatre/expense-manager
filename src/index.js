@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {expenses} from './Reducers/expenseReducer';
 import { transactions } from './Reducers';
 import {combineReducers, createStore} from'redux';
 import {Provider} from 'react-redux';
